@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  prisma:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: mysql://user:password@docker-service-name-or-server-url:port/database-name
+      PROVIDER: mysql
+    volumes:
+      - .:/app
+      - ./prisma:/app/prisma
+#     networks:
+#       - my-network
+
+# networks:
+#   my-network:
+#     external: true
